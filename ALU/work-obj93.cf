@@ -1,9 +1,0 @@
-v 3
-file . "alu1bit_tb.vhd" "20191025172544.000" "20191025142549.591":
-  entity alu1bit_tb at 8( 240) + 0 on 53;
-  architecture testbench of alu1bit_tb at 14( 335) + 0 on 54;
-file . "alu1bit.vhd" "20191025172428.000" "20191025142429.285":
-  entity fulladder at 1( 0) + 0 on 49;
-  architecture behav_fulladder of fulladder at 11( 154) + 0 on 50;
-  entity alu1bit at 23( 372) + 0 on 51;
-  architecture behav of alu1bit at 35( 632) + 0 on 52;
