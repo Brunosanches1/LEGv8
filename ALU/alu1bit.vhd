@@ -1,10 +1,10 @@
 library IEEE;
-use IEEE.numeri_bit.all;
+use IEEE.numeric_bit.all;
 
 entity fulladder is
     port (
-        af, bf, cinf: in bit;
-        sf, coutf: out bit
+        a, b, cin: in bit;
+        s, cout: out bit
     );
 end entity;
 
@@ -12,11 +12,11 @@ architecture behav_fulladder of fulladder is
 signal sum: bit;
 signal c: bit;
 begin
-    sum <= af xor bf xor cinf;
-    cout <= (cinf and (af or bf)) or (af and bf);
+    sum <= a xor b xor cin;
+    c <= (cin and (a or b)) or (a and b);
 
-    sf <= sum;
-    coutf <= c;
+    s <= sum;
+    cout <= c;
 end behav_fulladder;
 
 
@@ -36,32 +36,30 @@ architecture behav of alu1bit is
 
 component fulladder is
     port (
-            af, bf, cinf: in bit;
-            sf, coutf: out bit
+            a, b, cin: in bit;
+            s, cout: out bit
         );
 end component;
 
 signal ai, bi, ci, co, sum, ov, res, ls: bit;
 
+begin
+
 ai <= a xor ainvert;
-b1 <= b xor binvert;
+bi <= b xor binvert;
 ci <= cin;
 
-f1: port map fulladder(ai, bi, ci, sum, co);
+f1: fulladder port map (ai, bi, ci, sum, co);
 
 cout <= co;
 set <= sum;
-ov <= co and (not sum);
+ov <= co xor ci;
 
-if operation = '00' then
-    res <= ai and bi;
-elsif operation = '01' then
-    res <= ai or bi;
-elsif operation = '10' then 
-    res <= sum;
-else then 
-    res <= less;
-end if;
+with operation select res <=
+    (ai and bi) when "00",
+    (ai or bi) when "01",
+    sum when "10",
+    less when "11"; 
 
 result <= res;
 overflow <= ov;
