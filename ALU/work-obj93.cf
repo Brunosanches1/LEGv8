@@ -1,0 +1,12 @@
+v 3
+file . "alu1bit.vhd" "20191025173820.000" "20191028143718.902":
+  entity fulladder at 1( 0) + 0 on 49;
+  architecture behav_fulladder of fulladder at 11( 154) + 0 on 50;
+  entity alu1bit at 23( 372) + 0 on 51;
+  architecture behav of alu1bit at 35( 632) + 0 on 52;
+file . "alu.vhd" "20191028183724.000" "20191028153735.203":
+  entity alu at 1( 0) + 0 on 95;
+  architecture alu_arch of alu at 18( 447) + 0 on 96;
+file . "alu_tb.vhd" "20191028183558.000" "20191028153740.908":
+  entity alu_tb at 8( 231) + 0 on 97;
+  architecture testbench of alu_tb at 14( 318) + 0 on 98;
