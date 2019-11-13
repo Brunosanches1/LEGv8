@@ -14,11 +14,9 @@ architecture behav of signExtend is
     begin
         
         with i(31 downto 30) select
-            outp <= (63 downto 9 => i(20)) & i(20 downto 12) when "11",
+            o <= (63 downto 9 => i(20)) & i(20 downto 12) when "11",
                     (63 downto 19 => i(23)) & i(23 downto 5) when "10",
                     (63 downto 26 => i(25)) & i(25 downto 0) when "00",
                     (others => '0') when others;
-
-        o <= outp;
 
 end architecture;
