@@ -59,7 +59,7 @@ with operation select res <=
     (ai and bi) when "00",
     (ai or bi) when "01",
     sum when "10",
-    less when "11"; 
+    b when "11"; 
 
 result <= res;
 overflow <= ov;

@@ -34,7 +34,7 @@ architecture alu_arch of alu is
     GEN_ALU1BIT:
         for i in 0 to size - 1 generate
             GEN_First: if (i = 0) generate
-                X: alu1bit port map (A(i), B(i), less, op(2), 
+                X: alu1bit port map (A(i), B(i), '0', op(2), 
                     alu_output(i), carry_out(i), set(i), open, op(3), op(2), op(1 downto 0));
             end generate;
 
@@ -50,10 +50,7 @@ architecture alu_arch of alu is
     end generate;
         
     op <= S;
-    less <= set(size - 1) and not ze;
-    ze <= '1' when set = (set'range => '0') else
-         '0';
-
+    less <= set(size - 1);
     Co <= carry_out(size - 1);
     Ov <= overflow;
     Z <= '1' when alu_output = (alu_output'range => '0') else
