@@ -3,3 +3,15 @@ ALU/alu1bit.vcd
 
 *.cf
 *.vcd
+ALU/alu copy.vhd
+Processor/regfile.vhd
+Processor/signExtend.vhd
+Processor/reg_tb.vhd
+Processor/alu copy.vhd
+Processor/polilegsc_tb.vhd
+Processor/polilegsc_tb_alunos2.vhd
+Processor/ram.vhd
+Processor/rom.vhd
+Processor/e~polilegsc_tb.lst
+Processor/e~polilegsc_tb.o
+Processor/polilegsc_tb.o

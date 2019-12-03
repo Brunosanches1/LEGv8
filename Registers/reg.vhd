@@ -2,7 +2,7 @@ library ieee;
 use ieee.numeric_bit.all;
 
 entity reg is
-    generic (wordSize: natural := 4);
+    generic (wordSize: natural := 64);
     port (
             clock: in bit;
             reset: in bit;
