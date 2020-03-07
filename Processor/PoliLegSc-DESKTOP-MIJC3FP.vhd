@@ -12,9 +12,9 @@ entity reg is
     );
 end reg;
 
-architecture behav of reg is
+architecture reg of reg is
 begin
-rgp: process (clock, reset)
+rg: process (clock, reset)
     begin
         if reset = '1' then
             q <= (others => '0');
@@ -48,7 +48,7 @@ entity regfile is
     );
 end regfile;
 
-architecture behav of regfile is
+architecture regfile of regfile is
     type qArray is array (regn - 1 downto 0) of bit_vector (wordSize - 1 downto 0);
     signal qA: qArray;
     signal ld: bit_vector(regn - 1 downto 0);
@@ -441,9 +441,9 @@ architecture RTL of datapath is
                    Alu1Res when '0';
     
 
-    rf: regfile port map(clock, reset, regWrite, rr1, rr2, wr, regData, q1, q2);
+    regfile1: regfile port map(clock, reset, regWrite, rr1, rr2, wr, regData, q1, q2);
 
-    pcreg: reg port map(clock, reset, '1', PCInput, PCOut);
+    pc: reg port map(clock, reset, '1', PCInput, PCOut);
 
     alu1: alu port map(q1, Alu1_in2, Alu1Res, aluCtrl, ZeroFlag, open, open);
 
@@ -451,7 +451,7 @@ architecture RTL of datapath is
 
     alupc: alu port map(PCOut, x"0000000000000004", AluPcRes, "0010", open, open, open);
 
-    signex1: signExtend port map(imOut, SigExOut);
+    signex: signExtend port map(imOut, SigExOut);
 
     opcode <= imOut(31 downto 21);
     zero <= ZeroFlag;
@@ -549,4 +549,4 @@ architecture processor of polilegsc is
 
     dmem_we <= memW;
 
-end architecture;;
+end architecture;

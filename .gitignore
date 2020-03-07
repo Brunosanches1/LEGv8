@@ -1,8 +1,8 @@
 Control/work-obj93.cf
-ALU/alu1bit.vcd
-
+*.vcd
 *.cf
 *.vcd
+*.o
 ALU/alu copy.vhd
 Processor/regfile.vhd
 Processor/signExtend.vhd
@@ -13,5 +13,3 @@ Processor/polilegsc_tb_alunos2.vhd
 Processor/ram.vhd
 Processor/rom.vhd
 Processor/e~polilegsc_tb.lst
-Processor/e~polilegsc_tb.o
-Processor/polilegsc_tb.o
