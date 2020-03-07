@@ -3,6 +3,8 @@ Control/work-obj93.cf
 *.cf
 *.vcd
 *.o
+Processor/polilegsc.o
+Processor/PoliLegSc-DESKTOP-MIJC3FP.vhd
 ALU/alu copy.vhd
 Processor/regfile.vhd
 Processor/signExtend.vhd
